@@ -104,7 +104,7 @@ Player.prototype.handleInput = function(e){
 // Place the player object in a variable called player
 var player = new Player();
 var allEnemies = [];
-var numOfEnemies = 5;
+var numOfEnemies = 7;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
