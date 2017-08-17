@@ -59,9 +59,11 @@ var Player = function(){
 
 // Update the players's position, required method for game
 Player.prototype.update = function(){
-//    var move = 1;
-//    this.x = move;
-    //console.log ("Player update x: " + this.x);
+    // if the player reaches the water, the player won the game
+    if (this.y < 10){
+        ctx.font = "50px serif";
+        ctx.fillText("You Won!",10,40);
+    }
 };
 
 // Draw the player on the screen, required method for game
