@@ -22,7 +22,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += dt * this.speed;
+    // if enemy goes off screen on the right, move back off screen on the left
+    if (this.x < 606){
+        this.x += dt * this.speed;
+    }else this.x = -100;
     //console.log ("Enemy update x: " +this.x);
 };
 
