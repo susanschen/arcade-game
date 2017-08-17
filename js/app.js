@@ -41,14 +41,10 @@ var Player = function(){
 };
 
 // Update the players's position, required method for game
-// Parameter: dt, a time delta between ticks
-Player.prototype.update = function(dt){
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+Player.prototype.update = function(){
     var move = 1;
-    this.x = move * dt;
-    console.log ("Player update dt: " + dt + " x: " + this.x);
+    this.x = move;
+    console.log ("Player update x: " + this.x);
 };
 
 // Draw the player on the screen, required method for game
