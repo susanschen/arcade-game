@@ -6,7 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    console.log("Enemy sprite: " + this.sprite);
+    //console.log("Enemy sprite: " + this.sprite);
     // initializes location and speed to 0
     this.x = 0;
     this.y = 0;
@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     var move = 10;
     this.x += move * dt * this.speed;
-    console.log ("Enemy update x: " +this.x);
+    //console.log ("Enemy update x: " +this.x);
 };
 
 // Draw the enemy on the screen, required method for game
