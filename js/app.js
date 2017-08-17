@@ -1,19 +1,24 @@
 // Enemies our player must avoid
-var Enemy = function(row, rate) {
+var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    //console.log("Enemy sprite: " + this.sprite);
-    this.x = -100;
-    // Each row is 83 px tall. First row is at 0.
-    // Enemy are allowed on rows 1, 2, and 3 only.
+
+    // Start enemy offscreen on the left at a negative x value between 100 and 300
+    this.x = -(Math.floor(Math.random() * (300 - 100) + 100));
+
+     // Select row 1, 2, or 3.
+    var row = Math.floor((Math.random() * 3) + 1);
+
+    // Each row is 83 px tall.
     // To "center" the enemy in each row, y is decreased by 40 px.
     this.y = row * 83 - 40;
-    this.speed = rate;
-    console.log("enemy row: " + row + "- speed: " + this.speed);
+
+    // Pick a number between 20 and 90, not too slow or fast.
+    this.speed = Math.floor(Math.random() * (90 - 20) + 20);
 };
 
 // Update the enemy's position, required method for game
@@ -97,11 +102,7 @@ var player = new Player();
 var allEnemies = [];
 var numOfEnemies = 5;
 for (var i = 0; i < numOfEnemies; i++){
-    // Put enemy randomly in row 1, 2, or 3.
-    var row = Math.floor((Math.random() * 3) + 1);
-    // Pick a number between 20 and 90, not too slow or fast.
-    var rate = Math.floor(Math.random() * (90 - 20) + 20);
-    allEnemies[i] = new Enemy(row, rate);
+    allEnemies[i] = new Enemy();
 }
 
 
