@@ -57,23 +57,32 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// handle keys input
-// e values are "left", "right", "up", and "down"
-// the values 101 and 83 are from engine.js render()
+// Handle arrow keys input
+// The e values are "left", "right", "up", and "down"
 Player.prototype.handleInput = function(e){
     console.log("Player handleInput: " + e);
+    // The player can not go beyond the canvas size of 505 x 606.
+    // Each tile size is 101 x 83 (see engine.js render function)
     switch (e){
         case ("left"):
-            this.x -= 101;
+            if (this.x > 0){
+                this.x -= 101;
+            }
             break;
         case ("right"):
-            this.x += 101;
+            if (this.x < 404){
+                this.x += 101;
+            }
             break;
         case ("up"):
-            this.y -= 83;
+            if (this.y > 0){
+                this.y -= 83;
+            }
             break;
         case ("down"):
-            this.y += 83;
+            if (this.y < 332){
+                this.y += 83;
+            }
             break;
     }
 };
