@@ -17,8 +17,10 @@ var Enemy = function() {
     // To "center" the enemy in each row, y is decreased by 40 px.
     this.y = row * 83 - 40;
 
-    // Pick a number between 20 and 90, not too slow or fast.
-    this.speed = Math.floor(Math.random() * (90 - 20) + 20);
+    // Pick a number that is not too slow or fast.
+    var fast = 90;
+    var slow = 50;
+    this.speed = Math.floor(Math.random() * (fast - slow) + slow);
 };
 
 // Update the enemy's position, required method for game
