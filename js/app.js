@@ -35,8 +35,12 @@ Enemy.prototype.render = function() {
 var Player = function(){
     this.sprite = "images/char-boy.png";
     //console.log("player sprite: " + this.sprite);
-    this.x = 100;
-    this.y = 0;
+    // Each column is 101 px wide. First column is at 0.
+    // Each row is 83 px tall. First row is at 0.
+    // Initial player position is at third column, sixth row.
+    this.x = 202;
+    // The sixth row starts at 415, but y is set to a lower number to move the image up, so it looks like the player is at the center of the tile image.
+    this.y = 375;
     this.speed = 1;
 };
 
