@@ -7,8 +7,10 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 
-    // Start enemy offscreen on the left at a negative x value between 100 and 300
-    this.x = -(Math.floor(Math.random() * (300 - 100) + 100));
+    // Start enemy offscreen on the left at a negative value between X1 and X2
+    var X1 = 100;
+    var X2 = 700;
+    this.x = -(Math.floor(Math.random() * (X2 - X1) + X1));
 
      // Select row 1, 2, or 3.
     var row = Math.floor((Math.random() * 3) + 1);
