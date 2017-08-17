@@ -47,6 +47,11 @@ Player.prototype.update = function(dt){
     this.x = move * dt;
 };
 
+// Draw the player on the screen, required method for game
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
