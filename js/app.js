@@ -53,9 +53,23 @@ Player.prototype.render = function() {
 };
 
 // handle keys input
-// e values are "up", "down", "left", "right"
+// e values are "left", "right", "up", and "down"
 Player.prototype.handleInput = function(e){
     console.log("Player handleInput: " + e);
+    switch (e){
+        case ("left"):
+            this.x = 100;
+            break;
+        case ("right"):
+            this.x = 300;
+            break;
+        case ("up"):
+            this.y = 100;
+            break;
+        case ("down"):
+            this.y = 300;
+            break;
+    }
 };
 
 // Now instantiate your objects.
