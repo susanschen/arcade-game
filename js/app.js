@@ -53,6 +53,7 @@ Player.prototype.render = function() {
 };
 
 // handle keys input
+// e values are "up", "down", "left", "right"
 Player.prototype.handleInput = function(e){
     console.log("Player handleInput: " + e);
 };
