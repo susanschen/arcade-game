@@ -41,7 +41,6 @@ var Player = function(){
     this.x = 202;
     // The sixth row starts at 415, but y is set to a lower number to move the image up, so it looks like the player is at the center of the tile image.
     this.y = 375;
-    this.speed = 1;
 };
 
 // Update the players's position, required method for game
