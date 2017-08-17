@@ -54,20 +54,21 @@ Player.prototype.render = function() {
 
 // handle keys input
 // e values are "left", "right", "up", and "down"
+// the values 101 and 83 are from engine.js render()
 Player.prototype.handleInput = function(e){
     console.log("Player handleInput: " + e);
     switch (e){
         case ("left"):
-            this.x = 100;
+            this.x -= 101;
             break;
         case ("right"):
-            this.x = 300;
+            this.x += 101;
             break;
         case ("up"):
-            this.y = 100;
+            this.y -= 83;
             break;
         case ("down"):
-            this.y = 300;
+            this.y += 83;
             break;
     }
 };
