@@ -10,7 +10,7 @@ var Enemy = function() {
     // initializes location and speed to 0
     this.x = 0;
     this.y = 0;
-    this.speed = 0;
+    this.speed = 2;
 };
 
 // Update the enemy's position, required method for game
@@ -19,8 +19,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    var move = 1;
-    this.x = move * dt;
+    var move = 10;
+    this.x += move * dt * this.speed;
     console.log ("Enemy update x: " +this.x);
 };
 
