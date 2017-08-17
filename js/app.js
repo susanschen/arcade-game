@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(row) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -85,7 +85,9 @@ var player = new Player();
 var allEnemies = [];
 var numOfEnemies = 5;
 for (var i = 0; i < numOfEnemies; i++){
-    allEnemies[i] = new Enemy();
+    // Put enemy randomly in row 1, 2, or 3.
+    var row = Math.floor((Math.random() * 3) + 1);
+    allEnemies[i] = new Enemy(row);
 }
 
 
