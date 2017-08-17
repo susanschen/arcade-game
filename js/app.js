@@ -20,7 +20,7 @@ var Enemy = function() {
     this.y = row * 83 - 40;
 
     // Pick a number that is not too slow or fast.
-    var fast = 90;
+    var fast = 200;
     var slow = 50;
     this.speed = Math.floor(Math.random() * (fast - slow) + slow);
 };
