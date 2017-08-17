@@ -42,8 +42,8 @@ var Player = function(){
 
 // Update the players's position, required method for game
 Player.prototype.update = function(){
-    var move = 1;
-    this.x = move;
+//    var move = 1;
+//    this.x = move;
     //console.log ("Player update x: " + this.x);
 };
 
