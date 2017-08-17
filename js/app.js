@@ -7,7 +7,7 @@ var Enemy = function(row, rate) {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     //console.log("Enemy sprite: " + this.sprite);
-    this.x = 0;
+    this.x = -100;
     // Each row is 83 px tall. First row is at 0.
     // Enemy are allowed on rows 1, 2, and 3 only.
     // To "center" the enemy in each row, y is decreased by 40 px.
