@@ -6,6 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    console.log("Enemy sprite: " + this.sprite);
     // initializes location and speed to 0
     this.x = 0;
     this.y = 0;
@@ -20,6 +21,7 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     var move = 1;
     this.x = move * dt;
+    console.log ("Enemy update x: " +this.x);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -32,6 +34,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function(){
     this.sprite = "images/char-boy.png";
+    console.log("player sprite: " + this.sprite);
     this.x = 100;
     this.y = 0;
     this.speed = 1;
@@ -45,6 +48,7 @@ Player.prototype.update = function(dt){
     // all computers.
     var move = 1;
     this.x = move * dt;
+    console.log ("Player update dt: " + dt + " x: " + this.x);
 };
 
 // Draw the player on the screen, required method for game
