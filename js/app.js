@@ -34,7 +34,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function(){
     this.sprite = "images/char-boy.png";
-    console.log("player sprite: " + this.sprite);
+    //console.log("player sprite: " + this.sprite);
     this.x = 100;
     this.y = 0;
     this.speed = 1;
@@ -44,7 +44,7 @@ var Player = function(){
 Player.prototype.update = function(){
     var move = 1;
     this.x = move;
-    console.log ("Player update x: " + this.x);
+    //console.log ("Player update x: " + this.x);
 };
 
 // Draw the player on the screen, required method for game
