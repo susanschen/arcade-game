@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(row) {
+var Enemy = function(row, rate) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -12,8 +12,8 @@ var Enemy = function(row) {
     // Enemy are allowed on rows 1, 2, and 3 only.
     // To "center" the enemy in each row, y is decreased by 40 px.
     this.y = row * 83 - 40;
-    console.log("enemy row: " + row + "- y: " + this.y);
-    this.speed = 2;
+    this.speed = rate;
+    console.log("enemy row: " + row + "- speed: " + this.speed);
 };
 
 // Update the enemy's position, required method for game
@@ -22,8 +22,7 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    var move = 10;
-    this.x += move * dt * this.speed;
+    this.x += dt * this.speed;
     //console.log ("Enemy update x: " +this.x);
 };
 
@@ -88,7 +87,9 @@ var numOfEnemies = 5;
 for (var i = 0; i < numOfEnemies; i++){
     // Put enemy randomly in row 1, 2, or 3.
     var row = Math.floor((Math.random() * 3) + 1);
-    allEnemies[i] = new Enemy(row);
+    // Pick a number between 20 and 90, not too slow or fast.
+    var rate = Math.floor(Math.random() * (90 - 20) + 20);
+    allEnemies[i] = new Enemy(row, rate);
 }
 
 
