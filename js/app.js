@@ -7,9 +7,11 @@ var Enemy = function() {
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     //console.log("Enemy sprite: " + this.sprite);
-    // initializes location and speed to 0
+    // Each row is 83 px tall. First row is at 0.
+    // Enemy are allowed on rows 1, 2, and 3 only.
+    // To "center" the enemy in each row, y is decreased by 40 px. (83 - 40 = 43)
     this.x = 0;
-    this.y = 0;
+    this.y = 43;
     this.speed = 2;
 };
 
