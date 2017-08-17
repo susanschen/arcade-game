@@ -52,6 +52,11 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// handle keys input
+Player.prototype.handleInput = function(e){
+    console.log("Player handleInput: " + e);
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
