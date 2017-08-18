@@ -57,12 +57,9 @@ Enemy.prototype.getLocation = function(){
 var Player = function(){
     this.sprite = "images/char-boy.png";
     //console.log("player sprite: " + this.sprite);
-    // Each column is 101 px wide. First column is at 0.
-    // Each row is 83 px tall. First row is at 0.
-    // Initial player position is at third column, sixth row.
-    this.x = 202;
-    // The sixth row starts at 415, but y is set to a lower number to move the image up, so it looks like the player is at the center of the tile image.
-    this.y = 375;
+    this.x = "";
+    this.y = "";
+    this.reset();
 };
 
 // returns player's x,y value in an array
@@ -71,6 +68,15 @@ Player.prototype.getLocation = function(){
     position[0] = this.x;
     position[1] = this.y;
     return position;
+};
+
+// Set the player's location at the bottom row and middle column
+Player.prototype.reset = function(){
+    // Each tile is 101 x 83 px.
+    // (202, 415) is the top left coordinate for the tile at the third column and sixth row.
+    // To place the player's feet at the center of the tile, the y coordinate is changed to 375
+    this.x = 202;
+    this.y = 375;
 };
 
 // Update the players's position, required method for game
