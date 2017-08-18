@@ -16,7 +16,7 @@ var Enemy = function() {
     var row = Math.floor((Math.random() * 3) + 1);
 
     // Each row is 83 px tall.
-    // To "center" the enemy in each row, y is decreased by 40 px.
+    // To 'center' the enemy in each row, y is decreased by 40 px.
     this.y = row * 83 - 40;
 
     // Pick a number that is not too slow or fast.
@@ -54,9 +54,9 @@ Enemy.prototype.getLocation = function(){
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(){
-    this.sprite = "images/char-boy.png";
-    this.x = "";
-    this.y = "";
+    this.sprite = 'images/char-boy.png';
+    this.x = '';
+    this.y = '';
     this.reset();
 };
 
@@ -81,8 +81,8 @@ Player.prototype.reset = function(){
 Player.prototype.update = function(){
     // if the player reaches the water, the player won the game
     if (this.y < 10){
-        ctx.font = "50px serif";
-        ctx.fillText("You Won!",10,40);
+        ctx.font = '50px serif';
+        ctx.fillText('You Won!',10,40);
 
         // Wait 2 seconds, and then clear the message and reset the player
         setTimeout(function(){ return clearMessage();}, 2000);
@@ -96,29 +96,29 @@ Player.prototype.render = function() {
 };
 
 // Handle arrow keys input
-// The e values are "left", "right", "up", and "down"
+// The e values are 'left', 'right', 'up', and 'down'
 Player.prototype.handleInput = function(e){
     // Once player moves, clear any status messages.
     clearMessage();
     // The player can not go beyond the canvas size of 505 x 606.
     // Each tile size is 101 x 83
     switch (e){
-        case ("left"):
+        case ('left'):
             if (this.x > 0){
                 this.x -= 101;
             }
             break;
-        case ("right"):
+        case ('right'):
             if (this.x < 404){
                 this.x += 101;
             }
             break;
-        case ("up"):
+        case ('up'):
             if (this.y > 0){
                 this.y -= 83;
             }
             break;
-        case ("down"):
+        case ('down'):
             if (this.y < 332){
                 this.y += 83;
             }
