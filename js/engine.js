@@ -80,7 +80,24 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
+    }
+
+    function checkCollisions(){
+        var width = 101;
+        var height = 83;
+        var playerXY = player.getLocation();
+        allEnemies.forEach(function(enemy){
+            var enemyXY = enemy.getLocation();
+            if (enemyXY[0] < playerXY[0] + width &&
+                enemyXY[0] + width > playerXY[0] &&
+                enemyXY[1] < playerXY[1] + height &&
+                enemyXY[1] + height > playerXY[1]){
+                // collision detected
+                console.log("collision detected");
+                // reset game
+            }
+        });
     }
 
     /* This is called by the update function and loops through all of the
