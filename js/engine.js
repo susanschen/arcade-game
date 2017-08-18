@@ -84,15 +84,20 @@ var Engine = (function(global) {
     }
 
     function checkCollisions(){
-        var width = 101;
-        var height = 83;
+        var playerW = 62;
+        var playerH = 30;
+        // actual height is 72. Since the game is viewed from a top angle, the player's head does not hit an enemy in the row above it.  Only the bottom half of the body should count in collision detection.
+        var enemyW = 90;
+        var enemyH = 63;
         var playerXY = player.getLocation();
+
+        // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
         allEnemies.forEach(function(enemy){
             var enemyXY = enemy.getLocation();
-            if (enemyXY[0] < playerXY[0] + width &&
-                enemyXY[0] + width > playerXY[0] &&
-                enemyXY[1] < playerXY[1] + height &&
-                enemyXY[1] + height > playerXY[1]){
+            if (enemyXY[0] < playerXY[0] + playerW &&
+                enemyXY[0] + enemyW > playerXY[0] &&
+                enemyXY[1] < playerXY[1] + playerH &&
+                enemyXY[1] + enemyH > playerXY[1]){
                 // collision detected
                 console.log("collision detected");
                 // reset game
