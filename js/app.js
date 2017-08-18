@@ -99,6 +99,8 @@ Player.prototype.handleInput = function(e){
     console.log("Player handleInput: " + e);
     // The player can not go beyond the canvas size of 505 x 606.
     // Each tile size is 101 x 83 (see engine.js render function)
+    // Once player moves, clear any status messages.
+    clearMessage();
     switch (e){
         case ("left"):
             if (this.x > 0){
@@ -133,6 +135,9 @@ for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
 
+function clearMessage(){
+    ctx.clearRect(0,0,505,50);
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
