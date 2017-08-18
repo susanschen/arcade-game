@@ -31,11 +31,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    // if enemy goes off screen on the right, move back off screen on the left
+    // if enemy goes off screen on the right, move the enemy back to starting position
     if (this.x < 606){
         this.x += dt * this.speed;
     }else this.x = -100;
-    //console.log ("Enemy update x: " +this.x);
 };
 
 // Draw the enemy on the screen, required method for game
@@ -43,7 +42,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// returns enemy's x,y value in an array
+// Returns the enemy's x,y value in an array
 Enemy.prototype.getLocation = function(){
     var position = [];
     position[0] = this.x;
@@ -56,13 +55,12 @@ Enemy.prototype.getLocation = function(){
 // a handleInput() method.
 var Player = function(){
     this.sprite = "images/char-boy.png";
-    //console.log("player sprite: " + this.sprite);
     this.x = "";
     this.y = "";
     this.reset();
 };
 
-// returns player's x,y value in an array
+// Returns the player's x,y value in an array
 Player.prototype.getLocation = function(){
     var position = [];
     position[0] = this.x;
@@ -70,7 +68,7 @@ Player.prototype.getLocation = function(){
     return position;
 };
 
-// Set the player's location at the bottom row and middle column
+// Set the player's location at the bottom row and third column
 Player.prototype.reset = function(){
     // Each tile is 101 x 83 px.
     // (202, 415) is the top left coordinate for the tile at the third column and sixth row.
@@ -96,11 +94,10 @@ Player.prototype.render = function() {
 // Handle arrow keys input
 // The e values are "left", "right", "up", and "down"
 Player.prototype.handleInput = function(e){
-    console.log("Player handleInput: " + e);
-    // The player can not go beyond the canvas size of 505 x 606.
-    // Each tile size is 101 x 83 (see engine.js render function)
     // Once player moves, clear any status messages.
     clearMessage();
+    // The player can not go beyond the canvas size of 505 x 606.
+    // Each tile size is 101 x 83
     switch (e){
         case ("left"):
             if (this.x > 0){
@@ -135,6 +132,7 @@ for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
 
+// Clear messages at the top of the canvas
 function clearMessage(){
     ctx.clearRect(0,0,505,50);
 }
