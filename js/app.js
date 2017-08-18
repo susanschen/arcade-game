@@ -83,6 +83,10 @@ Player.prototype.update = function(){
     if (this.y < 10){
         ctx.font = "50px serif";
         ctx.fillText("You Won!",10,40);
+
+        // Wait 2 seconds, and then clear the message and reset the player
+        setTimeout(function(){ return clearMessage();}, 2000);
+        setTimeout(function(){ return player.reset();}, 2000);
     }
 };
 
