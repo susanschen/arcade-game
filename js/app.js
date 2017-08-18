@@ -43,6 +43,14 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// returns enemy's x,y value in an array
+Enemy.prototype.getLocation = function(){
+    var position = [];
+    position[0] = this.x;
+    position[1] = this.y;
+    return position;
+};
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -55,6 +63,14 @@ var Player = function(){
     this.x = 202;
     // The sixth row starts at 415, but y is set to a lower number to move the image up, so it looks like the player is at the center of the tile image.
     this.y = 375;
+};
+
+// returns player's x,y value in an array
+Player.prototype.getLocation = function(){
+    var position = [];
+    position[0] = this.x;
+    position[1] = this.y;
+    return position;
 };
 
 // Update the players's position, required method for game
