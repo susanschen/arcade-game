@@ -1,6 +1,16 @@
-frontend-nanodegree-arcade-game
+Frontend Nanodegree Arcade Game
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## How to Run the Arcade Game.
+Download the html, javascript, css and image files.  Open up the index.html in a browser and the game will start automatically.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## How to Play the Arcade Game
+The objective of the game is to move the player (boy) across the paved road to reach the water without colliding with the enemies (bugs) runnning on the paved road. If an enemy hits the player, the game resets.
+
+Move the player by using the arrow keys for "up", "down", "left", and "right".
+
+## Nanodegree Project Description
+
+This game is a project for the Front-End Nanodegree course on Udacity. The purpose of this project is to expand a student's knowledge of HTML5 canvas and object-oriented programming with javascript.
+
+Udacity provided the game engine and image assets on [Github](https://github.com/udacity/frontend-nanodegree-arcade-game). Upon opening the provided index.html, a student is faced with a blank screen. As a student, I have to write code to complete the game from setting up the enemies' and player's locations,  moving the player based on a user's keys input, moving the enemies across the screen at random speed and interval, testing for canvas boundary, testing for the player's collision with an enemy, and resetting the game once the player reaches the water.
