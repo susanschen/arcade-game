@@ -99,7 +99,9 @@ var Engine = (function(global) {
                 enemyXY[1] < playerXY[1] + playerH &&
                 enemyXY[1] + enemyH > playerXY[1]){
                 // collision detected
-                console.log("collision detected");
+                // console.log("collision detected");
+                ctx.font = "30px serif";
+                ctx.fillText("Hit!",400,40);
                 // reset game
             }
         });
