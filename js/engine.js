@@ -103,6 +103,7 @@ var Engine = (function(global) {
                 ctx.font = "30px serif";
                 ctx.fillText("Hit!",400,40);
                 // reset game
+                player.reset();
             }
         });
     }
@@ -183,7 +184,7 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        player.reset();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
