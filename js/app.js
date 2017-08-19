@@ -131,11 +131,8 @@ var Obstacle = function() {
     // Select a column
     var col = Math.floor(Math.random() * 5);
     this.x = col * 101;
-
     // Row 4 * tile height 83 - "centering" 40
-    // To 'center' the obstacle, y is decreased by 40 px.
     this.y = 292;
-    console.log("Obstacle col: " + col + " x: " + this.x + " y: " + this.y);
 };
 
 // Draw the obstacle on the screen
