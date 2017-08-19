@@ -94,10 +94,7 @@ var Engine = (function(global) {
         // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
         allEnemies.forEach(function(enemy){
             var enemyXY = enemy.getLocation();
-            if (enemyXY[0] < playerXY[0] + playerW &&
-                enemyXY[0] + enemyW > playerXY[0] &&
-                enemyXY[1] < playerXY[1] + playerH &&
-                enemyXY[1] + enemyH > playerXY[1]){
+            if (isCollide(enemyXY[0], enemyXY[1], enemyW, enemyH, playerXY[0], playerXY[1], playerW, playerH)){
                 // Display message when collision detected
                 ctx.font = '30px serif';
                 ctx.fillText('Hit!',400,40);
@@ -105,6 +102,19 @@ var Engine = (function(global) {
                 player.reset();
             }
         });
+    }
+
+    // Check for collision between two objects
+    // Accepts both objects' x, y, width, and height
+    // Returns true if the two objects collide
+    // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+    function isCollide(x, y, w, h, x2, y2, w2, h2) {
+        if (x < x2 + w2 &&
+            x + w > x2 &&
+            y < y2 + h2 &&
+            y + h > y2){
+                return true;
+        }
     }
 
     /* This is called by the update function and loops through all of the
