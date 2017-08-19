@@ -12,7 +12,7 @@ var Enemy = function() {
     var X2 = 700;
     this.x = -(Math.floor(Math.random() * (X2 - X1) + X1));
 
-     // Select row 1, 2, or 3.
+    // Select row 1, 2, or 3.
     var row = Math.floor((Math.random() * 3) + 1);
 
     // Each row is 83 px tall.
@@ -126,15 +126,36 @@ Player.prototype.handleInput = function(e){
     }
 };
 
+var Obstacle = function() {
+    this.sprite = 'images/Rock.png';
+    // Select a column
+    var col = Math.floor(Math.random() * 5);
+    this.x = col * 101;
+
+    // Row 4 * tile height 83 - "centering" 40
+    // To 'center' the obstacle, y is decreased by 40 px.
+    this.y = 292;
+    console.log("Obstacle col: " + col + " x: " + this.x + " y: " + this.y);
+};
+
+// Draw the obstacle on the screen
+Obstacle.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var player = new Player();
 var allEnemies = [];
 var numOfEnemies = 7;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
+var allObstacles = [];
+for (var j = 0; j < 3; j++){
+    allObstacles[j] = new Obstacle();
+}
+var player = new Player();
 
 // Clear messages at the top of the canvas
 function clearMessage(){

@@ -99,8 +99,8 @@ var Engine = (function(global) {
                 enemyXY[1] < playerXY[1] + playerH &&
                 enemyXY[1] + enemyH > playerXY[1]){
                 // Display message when collision detected
-                ctx.font = "30px serif";
-                ctx.fillText("Hit!",400,40);
+                ctx.font = '30px serif';
+                ctx.fillText('Hit!',400,40);
                 // Reset the player's position
                 player.reset();
             }
@@ -174,7 +174,9 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
+        allObstacles.forEach(function(obstacle){
+            obstacle.render();
+        });
         player.render();
     }
 
@@ -195,7 +197,8 @@ var Engine = (function(global) {
         'images/water-block.png',
         'images/grass-block.png',
         'images/enemy-bug.png',
-        'images/char-boy.png'
+        'images/char-boy.png',
+        'images/Rock.png'
     ]);
     Resources.onReady(init);
 
