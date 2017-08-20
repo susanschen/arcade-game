@@ -140,6 +140,14 @@ Obstacle.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Return obstacle's x,y values
+Obstacle.prototype.getLocation = function(){
+    var position = [];
+    position[0] = this.x;
+    position[1] = this.y;
+    return position;
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
