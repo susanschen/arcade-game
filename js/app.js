@@ -103,28 +103,51 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(e){
     // Once player moves, clear any status messages.
     clearMessage();
-    this.tile = xyTileNum(this.x, this.y);
     // The player can not go beyond the canvas size of 505 x 606.
     // Each tile size is 101 x 83
     switch (e){
         case ('left'):
             if (this.x > 0){
                 this.x -= 101;
+                this.tile = xyTileNum(this.x, this.y);
+                // if obstacle, undo
+                if (tracker.valueOf(this.tile)){
+                    this.x += 101;
+                    this.tile = xyTileNum(this.x, this.y);
+                }
             }
             break;
         case ('right'):
             if (this.x < 404){
                 this.x += 101;
+                this.tile = xyTileNum(this.x, this.y);
+                // if obstacle, undo
+                if (tracker.valueOf(this.tile)){
+                    this.x -= 101;
+                    this.tile = xyTileNum(this.x, this.y);
+                }
             }
             break;
         case ('up'):
             if (this.y > 0){
                 this.y -= 83;
+                this.tile = xyTileNum(this.x, this.y);
+                // if obstacle, undo
+                if (tracker.valueOf(this.tile)){
+                    this.y += 83;
+                    this.tile = xyTileNum(this.x, this.y);
+                }
             }
             break;
         case ('down'):
             if (this.y < 332){
                 this.y += 83;
+                this.tile = xyTileNum(this.x, this.y);
+                // if obstacle, undo
+                if (tracker.valueOf(this.tile)){
+                    this.y -= 83;
+                    this.tile = xyTileNum(this.x, this.y);
+                }
             }
             break;
     }
