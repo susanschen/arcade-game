@@ -167,6 +167,20 @@ function clearMessage(){
     ctx.clearRect(0,0,505,50);
 }
 
+// Converts the x, y coordinate parameters and
+// returns a corresponding tile number.
+// The first row are the tiles 0, 1, 2, 3, and 4.
+// The last row are the tiles 25, 26, 27, 28, amd 29.
+// The first row is row 0, and the first column is column 0
+function xyTileNum(x, y) {
+    var col = x / 101;
+    var row = (y + 40) / 83;
+    var tile = row * 5 + col;
+    console.log("xyTileNum: "+col + " row: " +row + " tile: " + tile);
+}
+
+xyTileNum(202,375);
+
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
