@@ -176,6 +176,11 @@ Tracker.prototype.setTileTrue = function(tileNum){
     console.log("tracker set: " + tileNum + " " + this.tiles[tileNum]);
 }
 
+// Returns whether the parameter is true or false
+Tracker.prototype.isTrue = function(tileNum) {
+    return this.tiles[tileNum];
+}
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
