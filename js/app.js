@@ -61,7 +61,7 @@ var Player = function(){
     this.reset();
 };
 
-// Returns the player's x,y value in an array
+// Returns the player's x, y and tile values in an array
 Player.prototype.getLocation = function(){
     var position = [];
     position[0] = this.x;
