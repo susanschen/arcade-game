@@ -66,7 +66,7 @@ Player.prototype.getLocation = function(){
     var position = [];
     position[0] = this.x;
     position[1] = this.y;
-    position[2] = this.tile;
+    position[2] = xyTileNum(this.x, this.y);
     return position;
 };
 
