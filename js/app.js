@@ -133,6 +133,8 @@ var Obstacle = function() {
     this.x = col * 101;
     // Row 4 * tile height 83 - "centering" 40
     this.y = 292;
+    this.tile = xyTileNum(this.x, this.y);
+    console.log("Obstacle tile: " + this.tile);
 };
 
 // Draw the obstacle on the screen
