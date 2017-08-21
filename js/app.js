@@ -155,6 +155,27 @@ Obstacle.prototype.getLocation = function(){
     return position;
 };
 
+// Tracker tracks where the Obstacles are located
+// New Trackers are set to false for all 30 tiles
+var Tracker = function(){
+    this.tiles = [];
+    this.numTiles = 30;
+    this.reset();
+}
+
+// Resets all tiles to be false, which means no Obstacles are tracked on the tiles.
+Tracker.prototype.reset = function(){
+    for (var i = 0; i < this.numTiles; i++){
+        this.tiles[i] = false;
+    }
+}
+
+// Pass in the tile number to set it to true
+Tracker.prototype.setTileTrue = function(tileNum){
+    this.tiles[tileNum] = true;
+}
+
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
