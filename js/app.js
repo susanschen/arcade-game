@@ -57,6 +57,7 @@ var Player = function(){
     this.sprite = 'images/char-boy.png';
     this.x = '';
     this.y = '';
+    this.tile = '';
     this.reset();
 };
 
@@ -65,6 +66,7 @@ Player.prototype.getLocation = function(){
     var position = [];
     position[0] = this.x;
     position[1] = this.y;
+    position[2] = this.tile;
     return position;
 };
 
@@ -75,6 +77,7 @@ Player.prototype.reset = function(){
     // To place the player's feet at the center of the tile, the y coordinate is changed to 375
     this.x = 202;
     this.y = 375;
+    this.tile = xyTileNum(this.x, this.y);
 };
 
 // Update the players's position, required method for game
@@ -100,6 +103,7 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(e){
     // Once player moves, clear any status messages.
     clearMessage();
+    this.tile = xyTileNum(this.x, this.y);
     // The player can not go beyond the canvas size of 505 x 606.
     // Each tile size is 101 x 83
     switch (e){
