@@ -142,11 +142,12 @@ Obstacle.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Return obstacle's x,y values
+// Return obstacle's x, y, and tile values
 Obstacle.prototype.getLocation = function(){
     var position = [];
     position[0] = this.x;
     position[1] = this.y;
+    position[2] = this.tile;
     return position;
 };
 
