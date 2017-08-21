@@ -177,7 +177,7 @@ Tracker.prototype.setTileTrue = function(tileNum){
 }
 
 // Returns whether the parameter is true or false
-Tracker.prototype.isTrue = function(tileNum) {
+Tracker.prototype.valueOf = function(tileNum) {
     return this.tiles[tileNum];
 }
 
