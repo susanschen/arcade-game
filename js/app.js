@@ -183,7 +183,7 @@ function xyTileNum(x, y) {
     var col = x / 101;
     var row = (y + 40) / 83;
     var tile = row * 5 + col;
-    console.log("xyTileNum: "+col + " row: " +row + " tile: " + tile);
+//    console.log("xyTileNum: "+col + " row: " +row + " tile: " + tile);
     return tile;
 }
 
