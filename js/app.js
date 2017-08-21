@@ -138,7 +138,7 @@ var Obstacle = function() {
     // Row 4 * tile height 83 - "centering" 40
     this.y = 292;
     this.tile = xyTileNum(this.x, this.y);
-    console.log("Obstacle tile: " + this.tile);
+    tracker.setTileTrue(this.tile);
 };
 
 // Draw the obstacle on the screen
@@ -173,6 +173,7 @@ Tracker.prototype.reset = function(){
 // Pass in the tile number to set it to true
 Tracker.prototype.setTileTrue = function(tileNum){
     this.tiles[tileNum] = true;
+    console.log("tracker set: " + tileNum + " " + this.tiles[tileNum]);
 }
 
 
@@ -184,6 +185,7 @@ var numOfEnemies = 7;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
+var tracker = new Tracker();
 var allObstacles = [];
 for (var j = 0; j < 3; j++){
     allObstacles[j] = new Obstacle();
