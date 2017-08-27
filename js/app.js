@@ -1,10 +1,5 @@
 // Enemies our player must avoid
 var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
 
     // Start enemy offscreen on the left at a negative value between X1 and X2
@@ -25,12 +20,10 @@ var Enemy = function() {
     this.speed = Math.floor(Math.random() * (fast - slow) + slow);
 };
 
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    // You should multiply any movement by the dt parameter which will ensure the game runs at the same speed for all computers.
     // if enemy goes off screen on the right, move the enemy back to starting position
     if (this.x < 606){
         this.x += dt * this.speed;
@@ -50,7 +43,6 @@ Enemy.prototype.getLocation = function(){
     return position;
 };
 
-// Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(){
@@ -80,7 +72,7 @@ Player.prototype.reset = function(){
     this.tile = xyTileNum(this.x, this.y);
 };
 
-// Update the players's position, required method for game
+// Update the players's position
 Player.prototype.update = function(){
     // if the player reaches the water, the player won the game
     if (this.y < 10){
@@ -93,7 +85,7 @@ Player.prototype.update = function(){
     }
 };
 
-// Draw the player on the screen, required method for game
+// Draw the player on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -204,10 +196,7 @@ Tracker.prototype.valueOf = function(tileNum) {
     return this.tiles[tileNum];
 }
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+// Instantiate the objects.
 var allEnemies = [];
 var numOfEnemies = 7;
 for (var i = 0; i < numOfEnemies; i++){
@@ -234,7 +223,6 @@ function xyTileNum(x, y) {
     var col = x / 101;
     var row = (y + 40) / 83;
     var tile = row * 5 + col;
-//    console.log("xyTileNum: "+col + " row: " +row + " tile: " + tile);
     return tile;
 }
 
