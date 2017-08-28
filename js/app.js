@@ -95,7 +95,7 @@ Player.prototype.handleInput = function(e){
                 this.x -= 101;
                 this.tile = xyTileNum(this.x, this.y);
                 // if obstacle, undo
-                if (tracker.valueOf(this.tile)){
+                if (tracker.hasObstacle(this.tile)){
                     this.x += 101;
                     this.tile = xyTileNum(this.x, this.y);
                 }
@@ -106,7 +106,7 @@ Player.prototype.handleInput = function(e){
                 this.x += 101;
                 this.tile = xyTileNum(this.x, this.y);
                 // if obstacle, undo
-                if (tracker.valueOf(this.tile)){
+                if (tracker.hasObstacle(this.tile)){
                     this.x -= 101;
                     this.tile = xyTileNum(this.x, this.y);
                 }
@@ -117,7 +117,7 @@ Player.prototype.handleInput = function(e){
                 this.y -= 83;
                 this.tile = xyTileNum(this.x, this.y);
                 // if obstacle, undo
-                if (tracker.valueOf(this.tile)){
+                if (tracker.hasObstacle(this.tile)){
                     this.y += 83;
                     this.tile = xyTileNum(this.x, this.y);
                 }
@@ -128,7 +128,7 @@ Player.prototype.handleInput = function(e){
                 this.y += 83;
                 this.tile = xyTileNum(this.x, this.y);
                 // if obstacle, undo
-                if (tracker.valueOf(this.tile)){
+                if (tracker.hasObstacle(this.tile)){
                     this.y -= 83;
                     this.tile = xyTileNum(this.x, this.y);
                 }
@@ -181,7 +181,7 @@ Tracker.prototype.setTileTrue = function(tileNum){
 }
 
 // Returns whether the parameter is true or false
-Tracker.prototype.valueOf = function(tileNum) {
+Tracker.prototype.hasObstacle = function(tileNum) {
     return this.tiles[tileNum];
 }
 
