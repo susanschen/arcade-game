@@ -169,10 +169,10 @@ var Tracker = function(){
     this.reset();
 }
 
-// Resets all tiles to be false, which means no Obstacles are tracked on the tiles.
+// Resets all tiles to be false, which means no Obstacles or Gems are tracked on the tiles.
 Tracker.prototype.reset = function(){
     for (var i = 0; i < this.numTiles; i++){
-        this.obstacleTiles[i] = false;
+        this.obstacleTiles[i] = this.gemTiles[i] = false;
     }
 }
 
@@ -181,9 +181,19 @@ Tracker.prototype.setTileTrue = function(tileNum){
     this.obstacleTiles[tileNum] = true;
 }
 
+// Pass in the tile number to set it to true
+Tracker.prototype.setGemTileTrue = function(tileNum){
+    this.gemTiles[tileNum] = true;
+}
+
 // Returns whether the parameter is true or false
 Tracker.prototype.hasObstacle = function(tileNum) {
     return this.obstacleTiles[tileNum];
+}
+
+// Returns whether the parameter is true or false.
+Tracker.prototype.hasGem = function(tileNum) {
+    return this.gemTiles[tileNum];
 }
 
 // Gem class
