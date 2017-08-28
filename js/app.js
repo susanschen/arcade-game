@@ -178,7 +178,6 @@ Tracker.prototype.reset = function(){
 // Pass in the tile number to set it to true
 Tracker.prototype.setTileTrue = function(tileNum){
     this.tiles[tileNum] = true;
-    console.log("tracker set: " + tileNum + " " + this.tiles[tileNum]);
 }
 
 // Returns whether the parameter is true or false
