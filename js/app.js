@@ -4,7 +4,21 @@ var Enemy = function() {
     // The enemy's actual width and height. (Not the image file size.)
     this.w = 90;
     this.h = 63;
+    this.reset();
+};
 
+// Update the enemy's position
+// Parameter: dt, a time delta between ticks
+Enemy.prototype.update = function(dt) {
+    // You should multiply any movement by the dt parameter which will ensure the game runs at the same speed for all computers.
+    // if enemy goes off screen on the right, move the enemy back to starting position
+    if (this.x < 606){
+        this.x += dt * this.speed;
+    }else this.x = -100;
+};
+
+// Reset Enemy's position and speed
+Enemy.prototype.reset = function(){
     // Start enemy offscreen on the left at a negative value between X1 and X2
     var X1 = 100;
     var X2 = 700;
@@ -23,16 +37,6 @@ var Enemy = function() {
     this.speed = Math.floor(Math.random() * (fast - slow) + slow);
 };
 
-// Update the enemy's position
-// Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter which will ensure the game runs at the same speed for all computers.
-    // if enemy goes off screen on the right, move the enemy back to starting position
-    if (this.x < 606){
-        this.x += dt * this.speed;
-    }else this.x = -100;
-};
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -42,7 +46,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function(){
     this.sprite = 'images/char-boy.png';
-    this.w = 60;
+    this.w = 50;
     this.h = 70;
     this.x = '';
     this.y = '';
