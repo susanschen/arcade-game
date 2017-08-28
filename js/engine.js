@@ -84,8 +84,12 @@ var Engine = (function(global) {
                 // Display message when collision detected
                 ctx.font = '30px serif';
                 ctx.fillText('Hit!',400,40);
-                // Reset the player's position
+                // Reset the player's and obstacles' positions
                 player.reset();
+                tracker.reset();
+                allObstacles.forEach(function(obstacle){
+                   obstacle.reset();
+                });
             }
         });
     }
