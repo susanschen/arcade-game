@@ -38,14 +38,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Returns the enemy's x,y value in an array
-Enemy.prototype.getLocation = function(){
-    var position = [];
-    position[0] = this.x;
-    position[1] = this.y;
-    return position;
-};
-
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function(){
@@ -56,15 +48,6 @@ var Player = function(){
     this.y = '';
     this.tile = '';
     this.reset();
-};
-
-// Returns the player's x, y and tile values in an array
-Player.prototype.getLocation = function(){
-    var position = [];
-    position[0] = this.x;
-    position[1] = this.y;
-    position[2] = xyTileNum(this.x, this.y);
-    return position;
 };
 
 // Set the player's location at the bottom row and third column
@@ -164,15 +147,6 @@ var Obstacle = function() {
 // Draw the obstacle on the screen
 Obstacle.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-
-// Return obstacle's x, y, and tile values
-Obstacle.prototype.getLocation = function(){
-    var position = [];
-    position[0] = this.x;
-    position[1] = this.y;
-    position[2] = this.tile;
-    return position;
 };
 
 // Tracker tracks where the Obstacles are located
