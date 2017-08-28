@@ -186,7 +186,20 @@ Tracker.prototype.hasObstacle = function(tileNum) {
 }
 
 // Gem class
+// Properties: x, y coordinates, tile number, and sprite image
+// Prototypes: render, reset
 var Gem = function(){
+    this.x = this.y = this.tile = this.sprite = '';
+    this.reset();
+};
+
+// Draw the gem on the screen
+Gem.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+// Reset the gem
+Gem.prototype.reset = function(){
     var randomSprite = Math.floor((Math.random() * 3) + 1);
     switch(randomSprite){
         case(1):
@@ -212,12 +225,7 @@ var Gem = function(){
     this.y = row * 83 - 40;
 
     this.tile = xyTileNum(this.x, this.y);
-};
-
-// Draw the gem on the screen
-Gem.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+}
 
 // Instantiate the objects.
 var allEnemies = [];
