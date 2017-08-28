@@ -160,7 +160,7 @@ Obstacle.prototype.reset = function(){
     tracker.setTileTrue(this.tile);
 };
 
-// Tracker tracks where the Obstacles are located
+// Tracker Class tracks where the Obstacles are located
 // New Trackers are set to false for all 30 tiles
 var Tracker = function(){
     this.tiles = [];
@@ -186,8 +186,6 @@ Tracker.prototype.hasObstacle = function(tileNum) {
 }
 
 // Gem class
-// Properties: x, y coordinates, tile number, and sprite image
-// Prototypes: render, reset
 var Gem = function(){
     this.x = this.y = this.tile = this.sprite = '';
     this.reset();
