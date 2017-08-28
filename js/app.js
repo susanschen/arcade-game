@@ -1,6 +1,9 @@
 // Enemies our player must avoid
 var Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
+    // The enemy's actual width and height. (Not the image file size.)
+    this.w = 90;
+    this.h = 63;
 
     // Start enemy offscreen on the left at a negative value between X1 and X2
     var X1 = 100;
