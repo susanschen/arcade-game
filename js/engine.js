@@ -77,8 +77,8 @@ var Engine = (function(global) {
         checkCollisions();
     }
 
+    // Check for collisions between the player and all enemies
     function checkCollisions(){
-        // https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
         allEnemies.forEach(function(enemy){
             if (isCollide(enemy.x, enemy.y, enemy.w, enemy.h, player.x, player.y, player.w, player.h)){
                 // Display message when collision detected
