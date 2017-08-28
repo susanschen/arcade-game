@@ -164,6 +164,7 @@ Obstacle.prototype.reset = function(){
 // New Trackers are set to false for all 30 tiles
 var Tracker = function(){
     this.obstacleTiles = [];
+    this.gemTiles = [];
     this.numTiles = 30;
     this.reset();
 }
