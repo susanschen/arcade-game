@@ -50,6 +50,8 @@ Enemy.prototype.getLocation = function(){
 // a handleInput() method.
 var Player = function(){
     this.sprite = 'images/char-boy.png';
+    this.w = 60;
+    this.h = 70;
     this.x = '';
     this.y = '';
     this.tile = '';
