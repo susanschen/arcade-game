@@ -137,8 +137,20 @@ Player.prototype.handleInput = function(e){
     }
 };
 
+// Obstacle class
+// This is the rock that blocks the player from entering a tile.
 var Obstacle = function() {
     this.sprite = 'images/Rock.png';
+    this.reset();
+};
+
+// Draw the obstacle on the screen
+Obstacle.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+// Change Obstacle position
+Obstacle.prototype.reset = function(){
     // Select a column
     var col = Math.floor(Math.random() * 5);
     this.x = col * 101;
@@ -146,11 +158,6 @@ var Obstacle = function() {
     this.y = 292;
     this.tile = xyTileNum(this.x, this.y);
     tracker.setTileTrue(this.tile);
-};
-
-// Draw the obstacle on the screen
-Obstacle.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Tracker tracks where the Obstacles are located
