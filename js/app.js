@@ -20,8 +20,8 @@ Enemy.prototype.update = function(dt) {
 // Reset Enemy's position and speed
 Enemy.prototype.reset = function(){
     // Start enemy offscreen on the left at a negative value between X1 and X2
-    var X1 = 100;
-    var X2 = 700;
+    var X1 = 75;
+    var X2 = 500;
     this.x = -(Math.floor(Math.random() * (X2 - X1) + X1));
 
     // Select row 1, 2, or 3.
@@ -33,7 +33,7 @@ Enemy.prototype.reset = function(){
 
     // Pick a number that is not too slow or fast.
     var fast = 200;
-    var slow = 50;
+    var slow = 75;
     this.speed = Math.floor(Math.random() * (fast - slow) + slow);
 };
 
