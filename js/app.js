@@ -11,10 +11,10 @@ var Enemy = function() {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter which will ensure the game runs at the same speed for all computers.
-    // if enemy goes off screen on the right, move the enemy back to starting position
+    // if enemy goes off screen on the right, reset it
     if (this.x < 606){
         this.x += dt * this.speed;
-    }else this.x = -100;
+    }else this.reset();
 };
 
 // Reset Enemy's position and speed
