@@ -163,7 +163,7 @@ Obstacle.prototype.reset = function(){
 // Tracker Class tracks where the Obstacles are located
 // New Trackers are set to false for all 30 tiles
 var Tracker = function(){
-    this.tiles = [];
+    this.obstacleTiles = [];
     this.numTiles = 30;
     this.reset();
 }
@@ -171,18 +171,18 @@ var Tracker = function(){
 // Resets all tiles to be false, which means no Obstacles are tracked on the tiles.
 Tracker.prototype.reset = function(){
     for (var i = 0; i < this.numTiles; i++){
-        this.tiles[i] = false;
+        this.obstacleTiles[i] = false;
     }
 }
 
 // Pass in the tile number to set it to true
 Tracker.prototype.setTileTrue = function(tileNum){
-    this.tiles[tileNum] = true;
+    this.obstacleTiles[tileNum] = true;
 }
 
 // Returns whether the parameter is true or false
 Tracker.prototype.hasObstacle = function(tileNum) {
-    return this.tiles[tileNum];
+    return this.obstacleTiles[tileNum];
 }
 
 // Gem class
