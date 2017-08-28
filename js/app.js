@@ -185,12 +185,47 @@ Tracker.prototype.hasObstacle = function(tileNum) {
     return this.tiles[tileNum];
 }
 
+// Gem class
+var Gem = function(){
+    var randomSprite = Math.floor((Math.random() * 3) + 1);
+    switch(randomSprite){
+        case(1):
+            this.sprite = 'images/Gem Blue.png';
+            break;
+        case(2):
+            this.sprite = 'images/Gem Green.png';
+            break;
+        case(3):
+            this.sprite = 'images/Gem Orange.png';
+            break;
+    };
+
+    // Select a column
+    var col = Math.floor(Math.random() * 5);
+    this.x = col * 101;
+
+    // Select row 1, 2, or 3.
+    var row = Math.floor((Math.random() * 3) + 1);
+
+    // Each row is 83 px tall.
+    // To 'center' the gem in each row, y is decreased by 40 px.
+    this.y = row * 83 - 40;
+
+    this.tile = xyTileNum(this.x, this.y);
+};
+
+// Draw the gem on the screen
+Gem.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 // Instantiate the objects.
 var allEnemies = [];
 var numOfEnemies = 7;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
+var gem = new Gem();
 var tracker = new Tracker();
 var allObstacles = [];
 for (var j = 0; j < 3; j++){
