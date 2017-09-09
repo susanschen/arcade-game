@@ -14,7 +14,9 @@ Enemy.prototype.update = function(dt) {
     // if enemy goes off screen on the right, reset it
     if (this.x < 606){
         this.x += dt * this.speed;
-    }else this.reset();
+    }else {
+        this.reset();
+    }
 };
 
 // Reset Enemy's position and speed
@@ -99,6 +101,9 @@ Player.prototype.handleInput = function(e){
                     this.x += 101;
                     this.tile = xyTileNum(this.x, this.y);
                 }
+                if (tracker.hasGem(this.tile)){
+                    console.log("gem collected");
+                }
             }
             break;
         case ('right'):
@@ -109,6 +114,9 @@ Player.prototype.handleInput = function(e){
                 if (tracker.hasObstacle(this.tile)){
                     this.x -= 101;
                     this.tile = xyTileNum(this.x, this.y);
+                }
+                if (tracker.hasGem(this.tile)){
+                    console.log("gem collected");
                 }
             }
             break;
@@ -121,6 +129,9 @@ Player.prototype.handleInput = function(e){
                     this.y += 83;
                     this.tile = xyTileNum(this.x, this.y);
                 }
+                if (tracker.hasGem(this.tile)){
+                    console.log("gem collected");
+                }
             }
             break;
         case ('down'):
@@ -131,6 +142,9 @@ Player.prototype.handleInput = function(e){
                 if (tracker.hasObstacle(this.tile)){
                     this.y -= 83;
                     this.tile = xyTileNum(this.x, this.y);
+                }
+                if (tracker.hasGem(this.tile)){
+                    console.log("gem collected");
                 }
             }
             break;
@@ -167,34 +181,34 @@ var Tracker = function(){
     this.gemTiles = [];
     this.numTiles = 30;
     this.reset();
-}
+};
 
 // Resets all tiles to be false, which means no Obstacles or Gems are tracked on the tiles.
 Tracker.prototype.reset = function(){
     for (var i = 0; i < this.numTiles; i++){
         this.obstacleTiles[i] = this.gemTiles[i] = false;
     }
-}
+};
 
 // Pass in the tile number to set it to true
 Tracker.prototype.setTileTrue = function(tileNum){
     this.obstacleTiles[tileNum] = true;
-}
+};
 
 // Pass in the tile number to set it to true
 Tracker.prototype.setGemTileTrue = function(tileNum){
     this.gemTiles[tileNum] = true;
-}
+};
 
 // Returns whether the parameter is true or false
 Tracker.prototype.hasObstacle = function(tileNum) {
     return this.obstacleTiles[tileNum];
-}
+};
 
 // Returns whether the parameter is true or false.
 Tracker.prototype.hasGem = function(tileNum) {
     return this.gemTiles[tileNum];
-}
+};
 
 // Gem class
 var Gem = function(){
@@ -220,7 +234,7 @@ Gem.prototype.reset = function(){
         case(3):
             this.sprite = 'images/Gem Orange.png';
             break;
-    };
+    }
 
     // Select a column
     var col = Math.floor(Math.random() * 5);
@@ -234,7 +248,8 @@ Gem.prototype.reset = function(){
     this.y = row * 83 - 40;
 
     this.tile = xyTileNum(this.x, this.y);
-}
+    tracker.setGemTileTrue(this.tile);
+};
 
 // Instantiate the objects.
 var allEnemies = [];
@@ -242,8 +257,10 @@ var numOfEnemies = 7;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
-var gem = new Gem();
+// Must create tracker before creating gem or obstacles
+
 var tracker = new Tracker();
+var gem = new Gem();
 var allObstacles = [];
 for (var j = 0; j < 3; j++){
     allObstacles[j] = new Obstacle();
