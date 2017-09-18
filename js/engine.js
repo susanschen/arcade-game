@@ -89,6 +89,7 @@ var Engine = (function(global) {
                 // Reset the player's and obstacles' positions
                 player.reset();
                 tracker.reset();
+                gem.reset();
                 allObstacles.forEach(function(obstacle){
                    obstacle.reset();
                 });
