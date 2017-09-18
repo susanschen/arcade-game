@@ -83,9 +83,11 @@ Player.prototype.reset = function(){
 };
 
 // If the player reaches the water, the player won the game
+// Give a bonus 100 points for winning
 Player.prototype.update = function(){
     if (this.y < 10){
         showCongrats.className = 'show';
+        tracker.addScore(100);
         player.reset();
 //      ctx.font = '50px serif';
 //      ctx.fillText('You Won!',10,40);
@@ -157,7 +159,7 @@ Player.prototype.handleInput = function(e){
     console.log('key pressed done');
         if (tracker.hasGem(this.tile)){
             console.log('has gem, calling add score');
-            tracker.addScore();
+            tracker.addScore(25);
             gem.reset();
     }
 };
@@ -240,8 +242,8 @@ Tracker.prototype.hasGem = function(tileNum) {
     return this.gemTiles[tileNum];
 };
 
-Tracker.prototype.addScore = function() {
-    this.score += 25; console.log("adding score " + this.score);
+Tracker.prototype.addScore = function(points) {
+    this.score += points; console.log("adding score " + this.score);
     gameScore.innerHTML = 'Score: ' + this.score;
 };
 
