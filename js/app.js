@@ -12,6 +12,7 @@ replay.addEventListener('click', function(){
     allObstacles.forEach(function(obstacle){
         obstacle.reset();
     });
+    clearMessage();
 });
 
 // Enemies our player must avoid
@@ -85,15 +86,13 @@ Player.prototype.reset = function(){
 // If the player reaches the water, the player won the game
 // Give a bonus 100 points for winning
 Player.prototype.update = function(){
-    if (this.y < 10){
-        showCongrats.className = 'show';
-        tracker.addScore(100);
-        player.reset();
-//      ctx.font = '50px serif';
-//      ctx.fillText('You Won!',10,40);
-        // Wait 2 seconds, and then clear the message and reset the player
-//        setTimeout(function(){ return clearMessage();}, 2000);
-//        setTimeout(function(){ return player.reset();}, 2000);
+    // Track won status to avoid adding Score at every update to screen
+    if ((this.y < 10) && (tracker.won === false)){
+        tracker.won = true;
+        // Wait half a second
+        setTimeout(function(){ return showPopup();}, 500);
+        setTimeout(function(){ return player.reset();}, 500);
+        setTimeout(function(){ return tracker.addScore(100);}, 500);
     }
 };
 
@@ -194,15 +193,17 @@ var Tracker = function(){
     this.gemTiles = [];
     this.numTiles = 30;
     this.score = '';
+    this.won = false;
     this.reset();
 };
 
 // Resets all tiles to be false, which means no Obstacles or Gems are tracked on the tiles.
-// Reset score to 0;
+// Reset score to 0 and won status to false;
 Tracker.prototype.reset = function() {
     this.setAllObstacleFalse();
     this.setAllGemFalse();
     this.resetScore();
+    this.won = false;
 };
 
 Tracker.prototype.setAllObstacleFalse = function(){
@@ -328,6 +329,10 @@ function xyTileNum(x, y) {
     var row = (y + 40) / 83;
     var tile = row * 5 + col;
     return tile;
+}
+
+function showPopup() {
+    showCongrats.className = 'show';
 }
 
 // This listens for key presses and sends the keys to your
