@@ -155,9 +155,7 @@ Player.prototype.handleInput = function(e){
             break;
         } //end switch
 
-    console.log('key pressed done');
         if (tracker.hasGem(this.tile)){
-            console.log('has gem, calling add score');
             tracker.addScore(25);
             gem.reset();
     }
@@ -244,7 +242,7 @@ Tracker.prototype.hasGem = function(tileNum) {
 };
 
 Tracker.prototype.addScore = function(points) {
-    this.score += points; console.log("adding score " + this.score);
+    this.score += points;
     gameScore.innerHTML = 'Score: ' + this.score;
 };
 
@@ -262,7 +260,6 @@ Gem.prototype.render = function() {
 // Reset the gem
 Gem.prototype.reset = function(){
     var oldTile = this.tile;
-    console.log('OLD tile: ' + this.tile);
     var randomSprite = Math.floor((Math.random() * 3) + 1);
     switch(randomSprite){
         case(1):
@@ -290,7 +287,6 @@ Gem.prototype.reset = function(){
         this.y = row * 83 - 40;
 
         this.tile = xyTileNum(this.x, this.y);
-        console.log('NEW tile: ' + this.tile);
     } while (oldTile == this.tile);
 
     tracker.setAllGemFalse();
@@ -314,11 +310,6 @@ for (var j = 0; j < 3; j++){
 }
 var player = new Player();
 
-// Clear messages at the top of the canvas
-function clearMessage(){
-    ctx.clearRect(0,0,505,50);
-}
-
 // Converts the x, y coordinate parameters and
 // returns a corresponding tile number.
 // The first row are the tiles 0, 1, 2, 3, and 4.
@@ -331,6 +322,13 @@ function xyTileNum(x, y) {
     return tile;
 }
 
+// Clear messages at the top of the canvas
+// Also clears the boy that somehow stays on the top of the canvas
+function clearMessage(){
+    ctx.clearRect(0,0,505,50);
+}
+
+// Display the congrats message
 function showPopup() {
     showCongrats.className = 'show';
 }
