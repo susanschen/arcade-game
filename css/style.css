@@ -5,3 +5,12 @@ body {
 #gameDisplay {
     font-size: 2rem;
 }
+
+#gameDirection {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+}
+
+p {
+    margin: 10px 200px;
+}
