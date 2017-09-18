@@ -260,6 +260,8 @@ Gem.prototype.render = function() {
 
 // Reset the gem
 Gem.prototype.reset = function(){
+    var oldTile = this.tile;
+    console.log('OLD tile: ' + this.tile);
     var randomSprite = Math.floor((Math.random() * 3) + 1);
     switch(randomSprite){
         case(1):
@@ -273,26 +275,31 @@ Gem.prototype.reset = function(){
             break;
     }
 
-    // Select a column
-    var col = Math.floor(Math.random() * 5);
-    this.x = col * 101;
+    // Pick a random tile on rows 1, 2 or 3 and re-pick if the same tile
+    do {
+        // Select a column
+        var col = Math.floor(Math.random() * 5);
+        this.x = col * 101;
 
-    // Select row 1, 2, or 3.
-    var row = Math.floor((Math.random() * 3) + 1);
+        // Select row 1, 2, or 3.
+        var row = Math.floor((Math.random() * 3) + 1);
 
-    // Each row is 83 px tall.
-    // To 'center' the gem in each row, y is decreased by 40 px.
-    this.y = row * 83 - 40;
+        // Each row is 83 px tall.
+        // To 'center' the gem in each row, y is decreased by 40 px.
+        this.y = row * 83 - 40;
 
-    this.tile = xyTileNum(this.x, this.y);
+        this.tile = xyTileNum(this.x, this.y);
+        console.log('NEW tile: ' + this.tile);
+    } while (oldTile == this.tile);
+
     tracker.setAllGemFalse();
     tracker.setTileGemTrue(this.tile);
-    console.log('gem tile: ' + this.tile);
+
 };
 
 // Instantiate the objects.
 var allEnemies = [];
-var numOfEnemies = 5;
+var numOfEnemies = 1;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
