@@ -1,9 +1,17 @@
 /* global ctx, Resources, setTimeout, document  */
+
 var gameScore = document.getElementById('gameDisplay');
 var showCongrats = document.getElementById('congratsPopup');
 var replay = document.getElementById('congratsPlay');
+
+// When player clicks on 'Play Again', hide the congrats message and reset the tracker, gem, and obstacle
 replay.addEventListener('click', function(){
     showCongrats.className = 'hide';
+    tracker.reset();
+    gem.reset();
+    allObstacles.forEach(function(obstacle){
+        obstacle.reset();
+    });
 });
 
 // Enemies our player must avoid
