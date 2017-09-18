@@ -1,6 +1,10 @@
 /* global ctx, Resources, setTimeout, document  */
 var gameScore = document.getElementById('gameDisplay');
 var showCongrats = document.getElementById('congratsPopup');
+var replay = document.getElementById('congratsPlay');
+replay.addEventListener('click', function(){
+    showCongrats.className = 'hide';
+});
 
 // Enemies our player must avoid
 var Enemy = function() {
@@ -70,18 +74,16 @@ Player.prototype.reset = function(){
     this.tile = xyTileNum(this.x, this.y);
 };
 
-// Update the players's position
+// If the player reaches the water, the player won the game
 Player.prototype.update = function(){
-    // if the player reaches the water, the player won the game
     if (this.y < 10){
-        ctx.font = '50px serif';
-        ctx.fillText('You Won!',10,40);
-
         showCongrats.className = 'show';
-
+        player.reset();
+//      ctx.font = '50px serif';
+//      ctx.fillText('You Won!',10,40);
         // Wait 2 seconds, and then clear the message and reset the player
-        setTimeout(function(){ return clearMessage();}, 2000);
-        setTimeout(function(){ return player.reset();}, 2000);
+//        setTimeout(function(){ return clearMessage();}, 2000);
+//        setTimeout(function(){ return player.reset();}, 2000);
     }
 };
 
