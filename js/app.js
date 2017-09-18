@@ -277,7 +277,7 @@ Gem.prototype.reset = function(){
 
 // Instantiate the objects.
 var allEnemies = [];
-var numOfEnemies = 7;
+var numOfEnemies = 5;
 for (var i = 0; i < numOfEnemies; i++){
     allEnemies[i] = new Enemy();
 }
