@@ -1,5 +1,6 @@
 /* global ctx, Resources, setTimeout, document  */
 var gameScore = document.getElementById('gameDisplay');
+var showCongrats = document.getElementById('congratsPopup');
 
 // Enemies our player must avoid
 var Enemy = function() {
@@ -75,6 +76,8 @@ Player.prototype.update = function(){
     if (this.y < 10){
         ctx.font = '50px serif';
         ctx.fillText('You Won!',10,40);
+
+        showCongrats.className = 'show';
 
         // Wait 2 seconds, and then clear the message and reset the player
         setTimeout(function(){ return clearMessage();}, 2000);
