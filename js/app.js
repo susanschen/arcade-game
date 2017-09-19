@@ -91,7 +91,7 @@ Player.prototype.update = function(){
         tracker.won = true;
         // Wait half a second
         setTimeout(function(){ return showPopup();}, 500);
-        setTimeout(function(){ return player.reset();}, 500);
+        setTimeout(function(){ return this.reset();}.bind(this), 500);
         setTimeout(function(){ return tracker.addScore(100);}, 500);
     }
 };
